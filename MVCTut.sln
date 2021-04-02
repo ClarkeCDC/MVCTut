@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCTut", "MVCTut.csproj", "{3FF0F6C3-D32C-4486-ADB9-BE0A59639C53}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3FF0F6C3-D32C-4486-ADB9-BE0A59639C53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FF0F6C3-D32C-4486-ADB9-BE0A59639C53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FF0F6C3-D32C-4486-ADB9-BE0A59639C53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FF0F6C3-D32C-4486-ADB9-BE0A59639C53}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {91A568A6-311C-4A4A-AD89-C6459AF0EF91}
+	EndGlobalSection
+EndGlobal
