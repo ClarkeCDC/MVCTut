@@ -22,7 +22,7 @@ namespace MVCTut.Controllers
         // GET: Movies
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Movies.ToListAsync());
+            return View(await _context.Movie.ToListAsync());
         }
 
         // GET: Movies/Details/5
@@ -33,7 +33,7 @@ namespace MVCTut.Controllers
                 return NotFound();
             }
 
-            var movies = await _context.Movies
+            var movies = await _context.Movie
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (movies == null)
             {
@@ -54,15 +54,15 @@ namespace MVCTut.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price")] Movies movies)
+        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price")] Movie movie)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(movies);
+                _context.Add(movie);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(movies);
+            return View(movie);
         }
 
         // GET: Movies/Edit/5
@@ -73,7 +73,7 @@ namespace MVCTut.Controllers
                 return NotFound();
             }
 
-            var movies = await _context.Movies.FindAsync(id);
+            var movies = await _context.Movie.FindAsync(id);
             if (movies == null)
             {
                 return NotFound();
@@ -86,9 +86,9 @@ namespace MVCTut.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price")] Movies movies)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price")] Movie movie)
         {
-            if (id != movies.Id)
+            if (id != movie.Id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace MVCTut.Controllers
             {
                 try
                 {
-                    _context.Update(movies);
+                    _context.Update(movie);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MoviesExists(movies.Id))
+                    if (!MoviesExists(movie.Id))
                     {
                         return NotFound();
                     }
@@ -113,7 +113,7 @@ namespace MVCTut.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(movies);
+            return View(movie);
         }
 
         // GET: Movies/Delete/5
@@ -124,7 +124,7 @@ namespace MVCTut.Controllers
                 return NotFound();
             }
 
-            var movies = await _context.Movies
+            var movies = await _context.Movie
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (movies == null)
             {
@@ -139,15 +139,15 @@ namespace MVCTut.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var movies = await _context.Movies.FindAsync(id);
-            _context.Movies.Remove(movies);
+            var movies = await _context.Movie.FindAsync(id);
+            _context.Movie.Remove(movies);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool MoviesExists(int id)
         {
-            return _context.Movies.Any(e => e.Id == id);
+            return _context.Movie.Any(e => e.Id == id);
         }
     }
 }

@@ -14,6 +14,6 @@ namespace MVCTut.Data
         {
         }
 
-        public DbSet<MVCTut.Models.Movies> Movies { get; set; }
+        public DbSet<MVCTut.Models.Movie> Movie { get; set; }
     }
 }
