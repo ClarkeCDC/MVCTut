@@ -20,8 +20,16 @@ namespace MVCTut.Controllers
         }
 
         // GET: Movies
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string SearchString)
         {
+            var movies = from m in _context.Movie
+                         select m;
+            
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                movies = movies.Where(s => s.Title.Contains(SearchString));
+            }
+            
             return View(await _context.Movie.ToListAsync());
         }
 
